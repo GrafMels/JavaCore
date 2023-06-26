@@ -18,7 +18,7 @@ public class FullArrays {
     }
 
     public FullArrays(int countCustomer, int countProduct, int countOrder) {
-        String[] firstNames = new String[]{"Annie", "Donna", "Katherine", "David", "Gail", "Richard", "Jeanne", "James", "Joe", "Maxine"};
+        String[] firstNames = new String[]{"Annie", "Donna", "Maxine", "Katherine", "Jeanne", "David", "Gail", "Richard", "James", "Joe"};
         String[] lastNames = new String[]{"Nelson", "Martinez", "Campbell", "Brooks", "Burke", "Mitchell", "Thomas", "Abbott", "Moran", "Brown"};
         String[] dates = new String[]{"20.09.1999", "10.11.1998", "29.12.2000", "01.01.2001", "08.06.1998", "09.03.2001", "02.02.2000", "09.11.2000", "20.12.2001", "02.05.1998"};
         Long[] phoneNumbers = new Long[]{79140711002L, 79148831781L, 79143211721L, 79148476281L, 79145335362L, 79145532448L, 79146994200L, 79144867689L, 79141375997L, 79145069457L};
@@ -31,7 +31,13 @@ public class FullArrays {
 
         Random random = new Random();
         for (int i = 0; i < countCustomer; i++) {
-            customersList[i] = new Customer(String.format("%s %s", firstNames[random.nextInt(9+1)], lastNames[random.nextInt(9+1)]), dates[random.nextInt(9+1)], phoneNumbers[random.nextInt(9+1)]);
+            int firstNameIndex = random.nextInt(9+1);
+            customersList[i] = new Customer(String.format("%s %s", firstNames[firstNameIndex], lastNames[random.nextInt(9+1)]), dates[random.nextInt(9+1)], phoneNumbers[random.nextInt(9+1)]);
+            if (firstNameIndex>4){
+                customersList[i].buildMan();
+            }else {
+                customersList[i].buildWoman();
+            }
         }
 
         for (int i = 0; i < countProduct; i++) {

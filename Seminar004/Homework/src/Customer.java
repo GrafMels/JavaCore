@@ -6,6 +6,7 @@ public class Customer {
     private String fullName;
     private LocalDate birthDate;
     private long phoneNumber;
+    private String gender;
 
     public Customer(String fullName, String birthDate, long phoneNumber) {
         this.fullName = fullName;
@@ -14,18 +15,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
     @Override
     public String toString() {
         return "\n\t\tCustomer{" +
                 "\n\t\t\tfullName='" + fullName + '\'' +
+                "\n\t\t\tgender='" + gender + '\'' +
                 ", \n\t\t\tage=" + (LocalDate.now().getYear() - birthDate.getYear()) +
                 ", \n\t\t\tphoneNumber=" + phoneNumber +
                 '}';
@@ -34,8 +28,17 @@ public class Customer {
     public String toStringInOrder() {
         return "\n\t\t\t\tCustomer{" +
                 "\n\t\t\t\t\tfullName='" + fullName + '\'' +
+                "\n\t\t\t\t\tgender='" + gender + '\'' +
                 ", \n\t\t\t\t\tage=" + (LocalDate.now().getYear() - birthDate.getYear()) +
                 ", \n\t\t\t\t\tphoneNumber=" + phoneNumber +
                 '}';
+    }
+
+    public void buildMan(){
+        this.gender = "male";
+    }
+
+    public void buildWoman(){
+        this.gender = "female";
     }
 }
