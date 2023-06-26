@@ -1,3 +1,7 @@
+package Objects;
+
+import Exceptions.TooMuchSaleException;
+
 import java.util.Random;
 
 public class Product {
@@ -53,7 +57,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "\n\t\tProduct{" +
+        return "\n\t\tObjects.Product{" +
                 "\n\t\t\ttitle='" + title + '\'' +
                 ", \n\t\t\tsalary=" + salary +
                 ", \n\t\t\tcount=" + count +
@@ -61,7 +65,7 @@ public class Product {
     }
 
     public String toStringInOrder() {
-        return "\n\t\t\t\tProduct{" +
+        return "\n\t\t\t\tObjects.Product{" +
                 "\n\t\t\t\t\ttitle='" + title + '\'' +
                 ", \n\t\t\t\t\tsalary=" + salary +
                 ", \n\t\t\t\t\tcount=" + count +

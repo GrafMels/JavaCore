@@ -1,3 +1,7 @@
+import Objects.Customer;
+import Objects.Order;
+import Objects.Product;
+
 import java.util.Random;
 
 public class FullArrays {

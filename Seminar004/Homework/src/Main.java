@@ -1,22 +1,29 @@
+import Exceptions.AmountException;
+import Exceptions.CustomerException;
+import Exceptions.ProductException;
+import Exceptions.TooMuchSaleException;
+import Objects.Customer;
+import Objects.Order;
+import Objects.Product;
+
 public class Main {
     static FullArrays arrays = new FullArrays(2, 5, 5);
     public static void main(String[] args){
 
-
         try {
-            if (true){//Значение true это без ошибок а значение false это с ошибкой AmountException
+            if (true){//Значение true это без ошибок а значение false это с ошибкой Exceptions.AmountException
                 arrays.getOrderList()[0] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[0], 10);
             }else {
                 arrays.getOrderList()[0] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[0], -10);
             }
 
-            if (true){// с ошибкой CustomerException
+            if (true){// с ошибкой Exceptions.CustomerException
                 arrays.getOrderList()[1] = buildOrder(arrays.getCustomersList()[1], arrays.getProductsList()[1], 20);
             }else {
                 arrays.getOrderList()[1] = buildOrder(new Customer("ss", "20.03.1983", 89085587623L), arrays.getProductsList()[1], 20);
             }
 
-            if (true){// с ошибкой ProductException
+            if (true){// с ошибкой Exceptions.ProductException
                 arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[2], 30);
             }else {
                 arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], new Product("Gus", 123, true), 30);
@@ -71,7 +78,7 @@ public class Main {
                 throw new AmountException(String.format("Wrong product quantity: expected x(quantity) <= %d. Received %d.", product.getCount(), count));
             }
         } else if (count < -1) {
-//            throw new AmountException(String.format("Wrong product quantity: expected x(quantity) > 0. Received %d.", count));
+//            throw new Exceptions.AmountException(String.format("Wrong product quantity: expected x(quantity) > 0. Received %d.", count));
             count = 1;
             product.minusCount(count);
         }else {

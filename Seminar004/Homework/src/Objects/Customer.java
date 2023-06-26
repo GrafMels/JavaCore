@@ -1,3 +1,5 @@
+package Objects;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -17,7 +19,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "\n\t\tCustomer{" +
+        return "\n\t\tObjects.Customer{" +
                 "\n\t\t\tfullName='" + fullName + '\'' +
                 "\n\t\t\tgender='" + gender + '\'' +
                 ", \n\t\t\tage=" + (LocalDate.now().getYear() - birthDate.getYear()) +
@@ -26,7 +28,7 @@ public class Customer {
     }
 
     public String toStringInOrder() {
-        return "\n\t\t\t\tCustomer{" +
+        return "\n\t\t\t\tObjects.Customer{" +
                 "\n\t\t\t\t\tfullName='" + fullName + '\'' +
                 "\n\t\t\t\t\tgender='" + gender + '\'' +
                 ", \n\t\t\t\t\tage=" + (LocalDate.now().getYear() - birthDate.getYear()) +
