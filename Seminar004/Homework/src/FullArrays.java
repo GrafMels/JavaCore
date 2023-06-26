@@ -41,7 +41,11 @@ public class FullArrays {
         }
 
         for (int i = 0; i < countProduct; i++) {
-            productsList[i] = new Product(titles[i%10], salary[random.nextInt(9+1)]);
+            boolean isPremium = true;
+            if (i%2 == 0){
+                isPremium = false;
+            }
+            productsList[i] = new Product(titles[i%10], salary[random.nextInt(9+1)], isPremium);
         }
     }
 

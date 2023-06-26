@@ -1,8 +1,8 @@
 public class Main {
     static FullArrays arrays = new FullArrays(2, 5, 5);
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        arrays.getProductsList()[4].pushDiscount();
+
         try {
             if (true){//Значение true это без ошибок а значение false это с ошибкой AmountException
                 arrays.getOrderList()[0] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[0], 10);
@@ -19,7 +19,7 @@ public class Main {
             if (true){// с ошибкой ProductException
                 arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[2], 30);
             }else {
-                arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], new Product("Gus", 123), 30);
+                arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], new Product("Gus", 123, true), 30);
             }
             arrays.getOrderList()[3] = buildOrder(arrays.getCustomersList()[1], arrays.getProductsList()[3], 40);
             arrays.getOrderList()[4] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[4], 50);
@@ -32,9 +32,13 @@ public class Main {
             arrays.getOrderList()[0] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[0], 10);
         }
 
+        try {
+            arrays.getProductsList()[4].pushDiscount(false);//Если хотите вызвать эту ошибку передайте true
+        } catch (TooMuchSaleException e) {
+            e.printStackTrace();
+        }
 
         System.out.println(arrays);
-
     }
 
     private static Order buildOrder(Customer customer, Product product, int count) throws CustomerException, ProductException, AmountException {
