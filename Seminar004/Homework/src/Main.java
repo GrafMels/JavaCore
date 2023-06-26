@@ -2,6 +2,7 @@ public class Main {
     static FullArrays arrays = new FullArrays(2, 5, 5);
     public static void main(String[] args) {
 
+        arrays.getProductsList()[4].pushDiscount();
         try {
             if (true){//Значение true это без ошибок а значение false это с ошибкой AmountException
                 arrays.getOrderList()[0] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[0], 10);
@@ -20,6 +21,9 @@ public class Main {
             }else {
                 arrays.getOrderList()[2] = buildOrder(arrays.getCustomersList()[0], new Product("Gus", 123), 30);
             }
+            arrays.getOrderList()[3] = buildOrder(arrays.getCustomersList()[1], arrays.getProductsList()[3], 40);
+            arrays.getOrderList()[4] = buildOrder(arrays.getCustomersList()[0], arrays.getProductsList()[4], 50);
+
         } catch (CustomerException e) {
             throw new CustomerException(e.getMessage());
         } catch (ProductException e) {
